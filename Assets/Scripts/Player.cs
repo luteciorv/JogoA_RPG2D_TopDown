@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public float MoveSpeed;
 
     private Rigidbody2D _rigidBody2D;
-    private Vector2 _direction;
+    public Vector2 Direction { get; private set; }
 
     private void Start()
     {
@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        _direction = GetDirection();
+        Direction = GetDirection();
     }
 
     private void FixedUpdate()
@@ -29,5 +29,5 @@ public class Player : MonoBehaviour
         new(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
     private void Move() =>
-         _rigidBody2D.MovePosition(_rigidBody2D.position + _direction * MoveSpeed * Time.fixedDeltaTime);
+         _rigidBody2D.MovePosition(_rigidBody2D.position + Direction * MoveSpeed * Time.fixedDeltaTime);
 }
