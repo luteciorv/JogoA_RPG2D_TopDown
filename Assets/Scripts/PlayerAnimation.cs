@@ -19,12 +19,35 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _animator.SetInteger("transition", (int)_player.Direction.sqrMagnitude);
+        Move();
+        Run();
 
+        Flip();
+    }
+
+    private void Move()
+    {
+        // Idle
+        if (_player.Direction.sqrMagnitude == 0)
+            _animator.SetInteger("transition", 0);
+
+        // Walking
+        if (_player.Direction.sqrMagnitude == 1)
+            _animator.SetInteger("transition", 1);
+    }
+
+    private void Run()
+    {
+        if (_player.IsRunning)
+            _animator.SetInteger("transition", 2);
+    }
+
+    private void Flip()
+    {
         if (_player.Direction.x > 0)
             transform.eulerAngles = new(0, 0);
-        
-        else if(_player.Direction.x < 0)
+
+        else if (_player.Direction.x < 0)
             transform.eulerAngles = new(0, 180);
     }
 }
