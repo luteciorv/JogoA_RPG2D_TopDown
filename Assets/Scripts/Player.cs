@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigidBody2D;
 
     public bool IsRunning { get; private set; }
+    public bool IsDodging { get; private set; }
     public Vector2 Direction { get; private set; }
 
     private void Start()
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     {
         SetDirection();
         Run();
+        Dodge();
     }
 
     private void FixedUpdate()
@@ -50,6 +52,21 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             IsRunning = false;
+            _currentSpeed = _moveSpeed;
+        }
+    }
+
+    private void Dodge()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            IsDodging = true;
+            _currentSpeed = _runSpeed;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            IsDodging = false;
             _currentSpeed = _moveSpeed;
         }
     }

@@ -31,9 +31,15 @@ public class PlayerAnimation : MonoBehaviour
         if (_player.Direction.sqrMagnitude == 0)
             _animator.SetInteger("transition", 0);
 
-        // Walking
+        // Walking e Dodging
         if (_player.Direction.sqrMagnitude == 1)
-            _animator.SetInteger("transition", 1);
+        {
+            if(_player.IsDodging)
+                _animator.SetTrigger("dodging");
+
+            else
+                _animator.SetInteger("transition", 1);
+        }
     }
 
     private void Run()
