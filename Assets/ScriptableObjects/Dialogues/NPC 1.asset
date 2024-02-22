@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158b9edebc5efa248a0319154ada5761, type: 3}
+  m_Name: NPC 1
+  m_EditorClassIdentifier: 
+  Actor: {fileID: 3395890951750770066, guid: 04176171c84277544bc96151e361127a, type: 3}
+  SpeakerSprite: {fileID: 0}
+  Sentence: 
+  Dialogues:
+  - ActorName: 
+    Profile: {fileID: 21300000, guid: 7f4fa35cf5242e64cb6463266000a9bb, type: 3}
+    Sentence:
+      Portuguese: "Ol\xE1, tudo bem?"
+      English: Hi, are you ok?
+      Spanish: Holla Test
+  - ActorName: 
+    Profile: {fileID: -2102965539, guid: 42f59d4f5465fae46bc676ec1b03470b, type: 3}
+    Sentence:
+      Portuguese: "Tudo sim. \xC9...Que lugar \xE9 esse?"
+      English: Yeah. Hm...What is this place?
+      Spanish: Holla 2
+  - ActorName: 
+    Profile: {fileID: 21300000, guid: 7f4fa35cf5242e64cb6463266000a9bb, type: 3}
+    Sentence:
+      Portuguese: "Oh, um novo aventureiro ao que parece. Aqui \xE9 Waterland, o
+        vilarejo mais pac\xEDfico da regi\xE3o"
+      English: Oh a new adventure i suposs. This is Waterland the most peaceful village
+        on this region
+      Spanish: Holla 3
+  - ActorName: 
+    Profile: {fileID: 21300000, guid: 7f4fa35cf5242e64cb6463266000a9bb, type: 3}
+    Sentence:
+      Portuguese: Qual o seu nome aventureiro?
+      English: What is your name adventure?
+      Spanish: Holla 3
