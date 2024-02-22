@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Settings")]
     public float TypingSpeed;
 
-    private bool _windowVisible;
+    public bool WindowVisible { get; private set; }
     private int _sentenceIndex = 0;
     private string[] _sentences = Array.Empty<string>();
 
@@ -61,7 +61,7 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Length == 0)
             throw new Exception("Nenhuma fala foi passada para o diálogo");
 
-        if(_windowVisible)
+        if(WindowVisible)
             NextSentence();
 
         else
@@ -71,14 +71,14 @@ public class DialogueManager : MonoBehaviour
 
             SpeechText.text = string.Empty;
             StartCoroutine(TypeSentence());
-            _windowVisible = true; 
+            WindowVisible = true; 
         }
     }
 
     public void EndDialogue()
     {
         _sentenceIndex = 0;
-        _windowVisible = false;
+        WindowVisible = false;
         DialogueWindow.SetActive(false);
         _sentences = Array.Empty<string>();
     }
