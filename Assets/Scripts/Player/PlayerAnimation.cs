@@ -21,6 +21,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         Move();
         Run();
+        CutTree();
 
         Flip();
     }
@@ -55,5 +56,11 @@ public class PlayerAnimation : MonoBehaviour
 
         else if (_player.Direction.x < 0)
             transform.eulerAngles = new(0, 180);
+    }
+
+    private void CutTree()
+    {
+        if (_player.IsCuttingTree)
+            _animator.SetInteger("transition", 3);
     }
 }
