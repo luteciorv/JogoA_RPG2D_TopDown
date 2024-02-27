@@ -1,44 +1,50 @@
-using System;
 using UnityEngine;
 
 public class PlayerItems : MonoBehaviour
 {
-    [SerializeField] private int _maxWoods;
-    private int _currentWoods;
+    public float MaxWood { get; private set; }
+    public int CurrentWood { get; private set; }
 
-    [SerializeField] private float _maxWater;
-    private float _currentWater;
+    public float MaxWater { get; private set; }
+    public float CurrentWater { get; private set; }
 
-    [SerializeField] private int _maxCarrot;
-    private int _currentCarrot;
+    public float MaxCarrot { get; private set; }
+    public int CurrentCarrot { get; private set; }
 
-    public bool CanWatering { get => _currentWater > 0; }
-    public bool CanCollectCarrot { get => _currentCarrot < _maxCarrot; }
+    public bool CanWatering { get => CurrentWater > 0; }
+    public bool CanCollectCarrot { get => CurrentCarrot < MaxCarrot; }
+
+    private void Start()
+    {
+        MaxWater = 50;
+        MaxWood = 20;
+        MaxCarrot = 20;
+    }
 
     public void CollectWood()
     {
-        if(_currentWoods < _maxWoods)
-            _currentWoods++;
+        if(CurrentWood < MaxWood)
+            CurrentWood++;
     }
 
     public void CollectWater(float amount)
     {
-        if (_currentWater + amount < _maxWater)
-            _currentWater += amount;
+        if (CurrentWater + amount < MaxWater)
+            CurrentWater += amount;
 
         else
-            _currentWater = _maxWater;
+            CurrentWater = MaxWater;
     }
 
     public void UseWater()
     {
-        if(CanWatering) _currentWater -= 0.01f;
+        if(CanWatering) CurrentWater -= 0.01f;
      
-        if (_currentWater < 0) _currentWater = 0;
+        if (CurrentWater < 0) CurrentWater = 0;
     }
 
     public void CollectCarrot()
     {
-        _currentCarrot++;
+        CurrentCarrot++;
     }
 }
