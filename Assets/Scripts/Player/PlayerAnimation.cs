@@ -22,6 +22,7 @@ public class PlayerAnimation : MonoBehaviour
         Move();
         Run();
         CutTree();
+        Dig();
 
         Flip();
     }
@@ -62,5 +63,11 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (_player.IsCuttingTree)
             _animator.SetInteger("transition", 3);
+    }
+
+    private void Dig()
+    {
+        if (_player.IsDigging)
+            _animator.SetInteger("transition", 4);
     }
 }
