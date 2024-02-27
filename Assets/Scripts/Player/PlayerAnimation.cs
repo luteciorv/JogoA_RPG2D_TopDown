@@ -17,12 +17,13 @@ public class PlayerAnimation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Move();
         Run();
         CutTree();
         Dig();
+        Watering();
 
         Flip();
     }
@@ -69,5 +70,11 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (_player.IsDigging)
             _animator.SetInteger("transition", 4);
+    }
+
+    private void Watering()
+    {
+        if (_player.IsWatering)
+            _animator.SetInteger("transition", 5);
     }
 }

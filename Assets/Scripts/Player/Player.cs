@@ -9,11 +9,13 @@ public class Player : MonoBehaviour
     private float _currentSpeed;
 
     private Rigidbody2D _rigidBody2D;
+    private PlayerItems _playerItems;
 
     public bool IsRunning { get; private set; }
     public bool IsDodging { get; private set; }
     public bool IsCuttingTree { get; private set; }
     public bool IsDigging { get; private set; }
+    public bool IsWatering { get; private set; }
 
     public Vector2 Direction { get; private set; }
 
@@ -23,6 +25,9 @@ public class Player : MonoBehaviour
     {
         if (!TryGetComponent(out _rigidBody2D)) 
             throw new Exception("Nenhum RigidBody associado a este componente foi encontrado");
+
+        if (!TryGetComponent(out _playerItems))
+            throw new Exception("Nenhum script 'PlayerItems' está associado a este componente");
 
         _currentSpeed = _moveSpeed;
         _currentTool = 1;
@@ -38,18 +43,19 @@ public class Player : MonoBehaviour
         Dodge();
         CutTree();
         Dig();
+        Watering();
     }
 
     private void FixedUpdate()
     {
-        if (IsCuttingTree || IsDigging) return;
+        if (IsCuttingTree || IsDigging || IsWatering) return;
 
         Move();
     }
 
     private void SetDirection()
     {
-        bool canNotChangeDirection = IsCuttingTree || IsDigging;
+        bool canNotChangeDirection = IsCuttingTree || IsDigging || IsWatering;
         if (canNotChangeDirection) return;
 
         Direction = new(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -60,7 +66,7 @@ public class Player : MonoBehaviour
 
     private void Run()
     {
-        bool canNotRun = IsCuttingTree || IsDigging || Vector2.zero == Direction;
+        bool canNotRun = IsCuttingTree || IsDigging || IsWatering || Vector2.zero == Direction;
         if (canNotRun) return;
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -78,7 +84,7 @@ public class Player : MonoBehaviour
 
     private void Dodge()
     {
-        bool canNotDodge = IsCuttingTree || IsDigging;
+        bool canNotDodge = IsCuttingTree || IsDigging || IsWatering;
         if (canNotDodge) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -116,9 +122,23 @@ public class Player : MonoBehaviour
             IsDigging = false;
     }
 
+    private void Watering()
+    {
+        if (_currentTool != 3) return;
+
+        if (Input.GetMouseButtonDown(0) && _playerItems.CanWatering)
+            IsWatering = true;
+
+        if (Input.GetMouseButtonUp(0) || !_playerItems.CanWatering)
+            IsWatering = false;
+
+        if (IsWatering)
+            _playerItems.UseWater();
+    }
+
     private void ChangeTool()
     {
-        bool canNotChangeTool = IsCuttingTree || IsDigging;
+        bool canNotChangeTool = IsCuttingTree || IsDigging || IsWatering;
         if (canNotChangeTool) return;
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -126,5 +146,8 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
             _currentTool = 2;
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            _currentTool = 3;
     }
 }
