@@ -46,11 +46,11 @@ public class Player : MonoBehaviour
     }
 
     private void Move() =>
-         _rigidBody2D.MovePosition(_rigidBody2D.position + Direction * _currentSpeed * Time.fixedDeltaTime);
+         _rigidBody2D.MovePosition(_rigidBody2D.position + _currentSpeed * Time.fixedDeltaTime * Direction);
 
     private void Run()
     {
-        if (IsCuttingTree) return;
+        if (IsCuttingTree || Vector2.zero == Direction) return;
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {

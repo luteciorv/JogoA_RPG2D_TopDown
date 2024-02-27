@@ -10,6 +10,8 @@ public class Tree : MonoBehaviour
     [SerializeField] private int _minAmountWood;
     [SerializeField] private int _maxAmountWood;
 
+    [SerializeField] private ParticleSystem _leafsParticles;
+
     private int _currentHealth;
     private int _totalWood;
 
@@ -27,6 +29,8 @@ public class Tree : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        if (_currentHealth <= 0) return;
+
         if (collider.CompareTag("Axe"))
             Hitted();
     }
@@ -37,6 +41,7 @@ public class Tree : MonoBehaviour
     private void Hitted()
     {
         _currentHealth--;
+        _leafsParticles.Play();
         _animator.SetTrigger("Hitted");
 
         if (_currentHealth <= 0)
