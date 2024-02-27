@@ -69069,6 +69069,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8fbb508678bdb41a85d84d2a24835b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _axeImage: {fileID: 949007603}
+  _shovelImage: {fileID: 2084108423}
+  _bucketImage: {fileID: 1005213436}
   _waterImage: {fileID: 1694452799}
   _woodImage: {fileID: 1246808658}
   _carrotImage: {fileID: 1330342447}
@@ -69296,7 +69299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -69372,7 +69375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -73451,7 +73454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

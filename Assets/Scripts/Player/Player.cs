@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
     public Vector2 Direction { get; private set; }
 
-    private int _currentTool;
+    public int CurrentTool { get; private set; }
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
             throw new Exception("Nenhum script 'PlayerItems' está associado a este componente");
 
         _currentSpeed = _moveSpeed;
-        _currentTool = 1;
+        CurrentTool = 1;
     }
 
     private void Update()
@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
 
     private void CutTree()
     {
-        if (_currentTool != 1) return;
+        if (CurrentTool != 1) return;
 
         if (Input.GetMouseButtonDown(0))
             IsCuttingTree = true;
@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
 
     private void Dig()
     {
-        if (_currentTool != 2) return;
+        if (CurrentTool != 2) return;
 
         if (Input.GetMouseButtonDown(0))
             IsDigging = true;
@@ -124,7 +124,7 @@ public class Player : MonoBehaviour
 
     private void Watering()
     {
-        if (_currentTool != 3) return;
+        if (CurrentTool != 3) return;
 
         if (Input.GetMouseButtonDown(0) && _playerItems.CanWatering)
             IsWatering = true;
@@ -142,12 +142,12 @@ public class Player : MonoBehaviour
         if (canNotChangeTool) return;
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            _currentTool = 1;
+            CurrentTool = 1;
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
-            _currentTool = 2;
+            CurrentTool = 2;
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
-            _currentTool = 3;
+            CurrentTool = 3;
     }
 }
