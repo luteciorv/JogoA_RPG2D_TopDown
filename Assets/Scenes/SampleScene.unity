@@ -123,6 +123,73 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &7092623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7092624}
+  - component: {fileID: 7092625}
+  m_Layer: 3
+  m_Name: Watering Collider
+  m_TagString: Watering
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7092624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092623}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9, y: -0.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 155046497}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7092625
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092623}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0068912506, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25689125
 --- !u!1 &40938407
 GameObject:
   m_ObjectHideFlags: 3
@@ -284,7 +351,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -4
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -4147,6 +4214,7 @@ Transform:
   m_Children:
   - {fileID: 1205504108}
   - {fileID: 1365656510}
+  - {fileID: 7092624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &155046498
@@ -4196,6 +4264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxWoods: 24
   _maxWater: 50
+  _maxCarrot: 0
 --- !u!1 &175456984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4416,6 +4485,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428401642}
   m_CullTransparentMesh: 1
+--- !u!1001 &462465669
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &462465670 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 462465669}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4564,6 +4699,72 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!1001 &592534304
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (12)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &592534305 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 592534304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &597196341
 GameObject:
   m_ObjectHideFlags: 0
@@ -4637,7 +4838,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -65664,7 +65865,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -67853,6 +68054,138 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1001 &850493352
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &850493353 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 850493352}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &856940105
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &856940106 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 856940105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &915695069
 GameObject:
   m_ObjectHideFlags: 0
@@ -68359,6 +68692,138 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35
+--- !u!1001 &1315262913
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (11)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &1315262914 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 1315262913}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1357363164
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &1357363165 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 1357363164}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1365656509
 GameObject:
   m_ObjectHideFlags: 0
@@ -68426,6 +68891,138 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!1001 &1440906465
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &1440906466 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 1440906465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1497669903
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &1497669904 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 1497669903}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1502844352
 GameObject:
   m_ObjectHideFlags: 0
@@ -68457,6 +69054,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 175456985}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1600242970
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &1600242971 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 1600242970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1643118541
 GameObject:
   m_ObjectHideFlags: 0
@@ -68488,6 +69151,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 175456985}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1672032210
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &1672032211 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 1672032210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1710881374
 GameObject:
   m_ObjectHideFlags: 0
@@ -68518,6 +69247,20 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 243530894}
+  - {fileID: 1926061648}
+  - {fileID: 1813452235}
+  - {fileID: 1440906466}
+  - {fileID: 2132740976}
+  - {fileID: 462465670}
+  - {fileID: 850493353}
+  - {fileID: 1672032211}
+  - {fileID: 1315262914}
+  - {fileID: 592534305}
+  - {fileID: 1600242971}
+  - {fileID: 856940106}
+  - {fileID: 1357363165}
+  - {fileID: 1497669904}
+  - {fileID: 1887667107}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1726437259
@@ -68874,6 +69617,204 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Language: 0
+--- !u!1001 &1813452234
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &1813452235 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 1813452234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1887667106
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (14)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &1887667107 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 1887667106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1926061647
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &1926061648 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 1926061647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1961652544
 GameObject:
   m_ObjectHideFlags: 0
@@ -70383,6 +71324,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2132740975
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1710881375}
+    m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969472209014183200, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: m_Name
+      value: Hole Plantation (13)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+--- !u!4 &2132740976 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+  m_PrefabInstance: {fileID: 2132740975}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &70541134212547550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70455,6 +71462,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1710881375}
     m_Modifications:
+    - target: {fileID: 2844193418380512451, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
+      propertyPath: _waterAmount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2911884732029530477, guid: dbb6cd5b52324f5459a80425b3092376, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.5

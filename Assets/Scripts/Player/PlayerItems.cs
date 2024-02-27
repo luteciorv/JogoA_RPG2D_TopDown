@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerItems : MonoBehaviour
@@ -8,7 +9,11 @@ public class PlayerItems : MonoBehaviour
     [SerializeField] private float _maxWater;
     private float _currentWater;
 
+    [SerializeField] private int _maxCarrot;
+    private int _currentCarrot;
+
     public bool CanWatering { get => _currentWater > 0; }
+    public bool CanCollectCarrot { get => _currentCarrot < _maxCarrot; }
 
     public void CollectWood()
     {
@@ -30,5 +35,10 @@ public class PlayerItems : MonoBehaviour
         if(CanWatering) _currentWater -= 0.01f;
      
         if (_currentWater < 0) _currentWater = 0;
+    }
+
+    public void CollectCarrot()
+    {
+        _currentCarrot++;
     }
 }
