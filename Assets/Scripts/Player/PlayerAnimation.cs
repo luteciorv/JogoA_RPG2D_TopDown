@@ -1,10 +1,10 @@
 using System;
-using System.Reflection;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
     private Player _player;
+    private Fishing _fishingArea;
     private Animator _animator;
 
     // Start is called before the first frame update
@@ -15,6 +15,9 @@ public class PlayerAnimation : MonoBehaviour
 
         if (!TryGetComponent(out _animator))
             throw new Exception("O componente 'Animator' não foi encontrado neste objeto");
+
+        _fishingArea = FindObjectOfType<Fishing>();
+        if (_fishingArea == null) throw new Exception("O sript não foi encontrado em cena");
     }
 
     // Update is called once per frame
@@ -25,7 +28,6 @@ public class PlayerAnimation : MonoBehaviour
         CutTree();
         Dig();
         Watering();
-        Fishing();
 
         Flip();
     }
@@ -80,9 +82,15 @@ public class PlayerAnimation : MonoBehaviour
             _animator.SetInteger("transition", 5);
     }
 
-    private void Fishing()
+    public void Fishing()
     {
-        //if (_player.IsFishing)
-        //    _animator.SetInteger("transition", 6);
+        _animator.SetTrigger("fishing");
+        _player.Fishing();
+    }
+
+    public void EndFishing()
+    {
+        _fishingArea.CatchFish();
+        _player.EndFishing();
     }
 }

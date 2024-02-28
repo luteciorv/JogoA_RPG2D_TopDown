@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public bool IsCuttingTree { get; private set; }
     public bool IsDigging { get; private set; }
     public bool IsWatering { get; private set; }
+    public bool IsFishing { get; private set; }
 
     public Vector2 Direction { get; private set; }
 
@@ -48,14 +49,14 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (IsCuttingTree || IsDigging || IsWatering) return;
+        if (IsCuttingTree || IsDigging || IsWatering || IsFishing) return;
 
         Move();
     }
 
     private void SetDirection()
     {
-        bool canNotChangeDirection = IsCuttingTree || IsDigging || IsWatering;
+        bool canNotChangeDirection = IsCuttingTree || IsDigging || IsWatering || IsFishing;
         if (canNotChangeDirection) return;
 
         Direction = new(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -66,7 +67,7 @@ public class Player : MonoBehaviour
 
     private void Run()
     {
-        bool canNotRun = IsCuttingTree || IsDigging || IsWatering || Vector2.zero == Direction;
+        bool canNotRun = IsCuttingTree || IsDigging || IsWatering || IsFishing || Vector2.zero == Direction;
         if (canNotRun) return;
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -84,7 +85,7 @@ public class Player : MonoBehaviour
 
     private void Dodge()
     {
-        bool canNotDodge = IsCuttingTree || IsDigging || IsWatering;
+        bool canNotDodge = IsCuttingTree || IsDigging || IsWatering || IsFishing;
         if (canNotDodge) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -138,7 +139,7 @@ public class Player : MonoBehaviour
 
     private void ChangeTool()
     {
-        bool canNotChangeTool = IsCuttingTree || IsDigging || IsWatering;
+        bool canNotChangeTool = IsCuttingTree || IsDigging || IsWatering || IsFishing;
         if (canNotChangeTool) return;
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -150,4 +151,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
             CurrentTool = 3;
     }
+
+    public void Fishing() => IsFishing = true;
+    public void EndFishing() => IsFishing = false;
 }
