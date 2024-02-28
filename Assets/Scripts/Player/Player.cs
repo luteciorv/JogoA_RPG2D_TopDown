@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public bool IsDigging { get; private set; }
     public bool IsWatering { get; private set; }
     public bool IsFishing { get; private set; }
+    public bool IsBuilding { get; private set; }
 
     public Vector2 Direction { get; private set; }
 
@@ -49,14 +50,14 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (IsCuttingTree || IsDigging || IsWatering || IsFishing) return;
+        if (IsCuttingTree || IsDigging || IsWatering || IsFishing || IsBuilding) return;
 
         Move();
     }
 
     private void SetDirection()
     {
-        bool canNotChangeDirection = IsCuttingTree || IsDigging || IsWatering || IsFishing;
+        bool canNotChangeDirection = IsCuttingTree || IsDigging || IsWatering || IsFishing || IsBuilding;
         if (canNotChangeDirection) return;
 
         Direction = new(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -67,7 +68,7 @@ public class Player : MonoBehaviour
 
     private void Run()
     {
-        bool canNotRun = IsCuttingTree || IsDigging || IsWatering || IsFishing || Vector2.zero == Direction;
+        bool canNotRun = IsCuttingTree || IsDigging || IsWatering || IsFishing || IsBuilding || Vector2.zero == Direction;
         if (canNotRun) return;
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -85,7 +86,7 @@ public class Player : MonoBehaviour
 
     private void Dodge()
     {
-        bool canNotDodge = IsCuttingTree || IsDigging || IsWatering || IsFishing;
+        bool canNotDodge = IsCuttingTree || IsDigging || IsWatering || IsFishing || IsBuilding;
         if (canNotDodge) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -139,7 +140,7 @@ public class Player : MonoBehaviour
 
     private void ChangeTool()
     {
-        bool canNotChangeTool = IsCuttingTree || IsDigging || IsWatering || IsFishing;
+        bool canNotChangeTool = IsCuttingTree || IsDigging || IsWatering || IsFishing || IsBuilding;
         if (canNotChangeTool) return;
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -154,4 +155,7 @@ public class Player : MonoBehaviour
 
     public void Fishing() => IsFishing = true;
     public void EndFishing() => IsFishing = false;
+
+    public void Building() => IsBuilding = true;
+    public void EndBuilding() => IsBuilding = false;
 }

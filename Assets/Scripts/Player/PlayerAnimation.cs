@@ -82,6 +82,7 @@ public class PlayerAnimation : MonoBehaviour
             _animator.SetInteger("transition", 5);
     }
 
+
     public void Fishing()
     {
         _animator.SetTrigger("fishing");
@@ -92,5 +93,17 @@ public class PlayerAnimation : MonoBehaviour
     {
         _fishingArea.CatchFish();
         _player.EndFishing();
+    }
+
+    public void Building()
+    {
+        _animator.SetBool("building", true);
+        _player.Building();
+    }
+
+    public void EndBuild()
+    {
+        _animator.SetBool("building", false);
+        _player.EndBuilding();
     }
 }

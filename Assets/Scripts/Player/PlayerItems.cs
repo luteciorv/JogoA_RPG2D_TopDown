@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerItems : MonoBehaviour
@@ -57,4 +58,10 @@ public class PlayerItems : MonoBehaviour
     {
         CurrentFishes++;
     }
+
+    public bool CanBuild(int woodCost) =>
+        CurrentWood >= woodCost;
+
+    public void UseWood(int wood) =>
+        CurrentWood -= wood;
 }
