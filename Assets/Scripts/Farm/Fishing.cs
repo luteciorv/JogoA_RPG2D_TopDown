@@ -8,6 +8,7 @@ public class Fishing : MonoBehaviour
 
     private bool _playerIn;
     private PlayerItems _playerItems;
+    private Player _player;
     private PlayerAnimation _playerAnimation;
 
     // Update is called once per frame
@@ -18,10 +19,8 @@ public class Fishing : MonoBehaviour
 
     private void ToFish()
     {
-        if (_playerIn && Input.GetKeyDown(KeyCode.E))
-        {
+        if (_playerIn && Input.GetKeyDown(KeyCode.E) && !_player.IsFishing)
             _playerAnimation.Fishing();
-        }
     }
 
     public void CatchFish()
@@ -38,7 +37,9 @@ public class Fishing : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            if (!collider.TryGetComponent(out _playerItems) || !collider.TryGetComponent(out _playerAnimation))
+            if (!collider.TryGetComponent(out _playerItems) 
+                || !collider.TryGetComponent(out _playerAnimation)
+                || !collider.TryGetComponent(out _player))
                 throw new Exception("O script não está associado a este objeto");
 
             _playerIn = true;

@@ -13,6 +13,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private Image _waterImage;
     [SerializeField] private Image _woodImage;
     [SerializeField] private Image _carrotImage;
+    [SerializeField] private Image _fishImage;
 
     private Color32 _selectedTool;
     private Color32 _unselectedTool;
@@ -37,6 +38,7 @@ public class HUDManager : MonoBehaviour
         _waterImage.fillAmount = 0;
         _woodImage.fillAmount = 0;
         _carrotImage.fillAmount = 0;
+        _fishImage.fillAmount = 0;
 
         _selectedTool = new(255, 255, 255, 255);
         _unselectedTool = new(255, 255, 255, 128);
@@ -58,6 +60,7 @@ public class HUDManager : MonoBehaviour
         _waterImage.fillAmount = _playerItems.CurrentWater / _playerItems.MaxWater;
         _woodImage.fillAmount = _playerItems.CurrentWood / _playerItems.MaxWood;
         _carrotImage.fillAmount = _playerItems.CurrentCarrot / _playerItems.MaxCarrot;
+        _fishImage.fillAmount = _playerItems.CurrentFishes / _playerItems.MaxFishes;
     }
 
     private void UpdateToolsHUD()
