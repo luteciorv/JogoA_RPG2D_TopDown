@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
@@ -24,6 +25,7 @@ public class PlayerAnimation : MonoBehaviour
         CutTree();
         Dig();
         Watering();
+        Fishing();
 
         Flip();
     }
@@ -76,5 +78,11 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (_player.IsWatering)
             _animator.SetInteger("transition", 5);
+    }
+
+    private void Fishing()
+    {
+        //if (_player.IsFishing)
+        //    _animator.SetInteger("transition", 6);
     }
 }
