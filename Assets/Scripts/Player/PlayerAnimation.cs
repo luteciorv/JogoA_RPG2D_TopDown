@@ -106,4 +106,9 @@ public class PlayerAnimation : MonoBehaviour
         _animator.SetBool("building", false);
         _player.EndBuilding();
     }
+
+    public void Hit()
+    {
+        _animator.SetTrigger("hit");
+    }
 }
