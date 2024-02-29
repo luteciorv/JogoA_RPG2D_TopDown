@@ -1,18 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class EnemyAnimation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Animator _animator;
+
+    private void Awake()
     {
-        
+        if (!TryGetComponent(out _animator))
+            throw new Exception("O componente Animator não foi associado a este obejto");      
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void Idle()
+        => _animator.SetInteger("transition", 0);
+
+    public void Walk()
+        => _animator.SetInteger("transition", 1);
+
+    public void Attack()
+        => _animator.SetInteger("transition", 2);
+
+    public void Hit()
+        => _animator.SetTrigger("hit");
+
+    public void Death()
+    => _animator.SetTrigger("death");
 }
