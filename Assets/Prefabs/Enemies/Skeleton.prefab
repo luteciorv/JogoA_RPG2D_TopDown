@@ -408,9 +408,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c2a6f4db3aa71d4c89d989e0388a113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _radiusDetection: 6
   _healthBar: {fileID: 6850112754469511474}
   _health: 5
-  _attackSpeed: 3
+  _attackSpeed: 2
   _attackHitbox: {fileID: 1264822585356597146}
   _radius: 0.35
   _playerLayer:

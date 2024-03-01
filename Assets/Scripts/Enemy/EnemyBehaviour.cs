@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    [Header("Chasing")]
+    [SerializeField] private float _radiusDetection;
+    private bool _playerInRangeToChase;
+
     [Header("HUD")]
     [SerializeField] private Image _healthBar;
 
@@ -54,19 +58,25 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (!IsAlive) return;
 
-        var reachedPlayer = Vector2.Distance(transform.position, _player.transform.position) <= _agent.stoppingDistance;
-        if (reachedPlayer && _canAttack)
-            Attack();
-        else if (reachedPlayer && !_canAttack)
-            Idle();
-        else
+        var playerInAttackRange = Vector2.Distance(transform.position, _player.transform.position) <= _agent.stoppingDistance;
+
+        if (playerInAttackRange)
+        {
+            if (_canAttack) Attack();
+            else Idle();
+        }
+        else if (_playerInRangeToChase)
         {
             Move();
-            ChanceDirection();
+            ChangeDirection();
         }
+        else
+            Idle();
 
         if(!_canAttack)
             AttackCooldown();
+        
+        DetectPlayer();
     }
 
     private void Attack()
@@ -111,7 +121,7 @@ public class EnemyBehaviour : MonoBehaviour
         _animation.Walk();
     }
 
-    private void ChanceDirection()
+    private void ChangeDirection()
     {
         var positionX = _player.transform.position.x - transform.position.x;
         transform.eulerAngles = new Vector2(0, positionX > 0 ? 0 : 180f);
@@ -142,6 +152,16 @@ public class EnemyBehaviour : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnDrawGizmosSelected() =>
+    private void DetectPlayer()
+    {
+        var collider2D = Physics2D.OverlapCircle(transform.position, _radiusDetection, _playerLayer);
+        _playerInRangeToChase = collider2D is not null;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
         Gizmos.DrawWireSphere(_attackHitbox.position, _radius);
+        Gizmos.DrawWireSphere(transform.position, _radiusDetection);
+
+    }
 }
