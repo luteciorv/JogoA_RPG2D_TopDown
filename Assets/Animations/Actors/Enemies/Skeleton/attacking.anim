@@ -95,6 +95,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.25
+    functionName: Play
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 655bcc6f143848440b2a6729271ca650, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.375
     functionName: OnEndAttack
     data: 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ActorSFX : MonoBehaviour
 {
-    [SerializeField] private AudioSource _audioSource;
+    private AudioSource _audioSource;
 
     private void Awake()
     {

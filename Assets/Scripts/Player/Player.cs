@@ -61,6 +61,11 @@ public class Player : MonoBehaviour
         if (canNotChangeDirection) return;
 
         Direction = new(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (Vector2.zero == Direction)
+        {
+            IsRunning = false;
+            _currentSpeed = _moveSpeed;
+        }
     }
 
     private void Move() =>
