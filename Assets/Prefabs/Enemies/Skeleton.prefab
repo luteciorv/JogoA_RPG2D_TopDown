@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 6696280280370740980}
   - component: {fileID: 6863745163835990211}
   - component: {fileID: 7843637521442862453}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c2a6f4db3aa71d4c89d989e0388a113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attackSpeed: 3
   _attackHitbox: {fileID: 1264822585356597146}
   _radius: 0.35
   _playerLayer:

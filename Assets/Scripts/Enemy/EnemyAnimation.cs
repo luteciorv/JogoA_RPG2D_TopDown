@@ -23,6 +23,6 @@ public class EnemyAnimation : MonoBehaviour
     public void Hit()
         => _animator.SetTrigger("hit");
 
-    public void Death()
+    public void Die()
     => _animator.SetTrigger("death");
 }

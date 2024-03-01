@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
+    [Header("Attack Settings")]
+    [SerializeField] private Transform _attackHitbox;
+    [SerializeField] private float _attackRadius;
+    [SerializeField] private LayerMask _enemyLayer;
+
     private Player _player;
     private Fishing _fishingArea;
     private Animator _animator;
@@ -111,4 +116,23 @@ public class PlayerAnimation : MonoBehaviour
     {
         _animator.SetTrigger("hit");
     }
+
+
+    /// <summary>
+    /// Chamado durante a animãção de ataque do Jogador como um evento
+    /// </summary>
+    public void OnAttack()
+    {
+        var hit = Physics2D.OverlapCircle(_attackHitbox.position, _attackRadius, _enemyLayer);
+        if(hit != null)
+        {
+            if (!hit.TryGetComponent(out EnemyBehaviour enemy))
+                throw new Exception("O script não está associado ao objeto");
+
+            enemy.Hit();
+        }
+    }
+
+    private void OnDrawGizmosSelected() =>
+    Gizmos.DrawWireSphere(_attackHitbox.position, _attackRadius);
 }

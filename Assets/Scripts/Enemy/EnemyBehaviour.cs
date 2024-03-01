@@ -1,10 +1,16 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    [Header("HUD")]
+    [SerializeField] private Image _healthBar;
+
     [Header("Status")]
+    [SerializeField] private float _health;
+    private float _currentHealth;
     [SerializeField] private float _attackSpeed;
     private float _currentAttackSpeed;
     private bool _canAttack;
@@ -17,6 +23,8 @@ public class EnemyBehaviour : MonoBehaviour
     private EnemyAnimation _animation;
     private NavMeshAgent _agent;
     private PlayerAnimation _player;
+
+    public bool IsAlive { get => _currentHealth > 0; }
 
     private void Awake()
     {
@@ -36,11 +44,16 @@ public class EnemyBehaviour : MonoBehaviour
     {
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
+
+        _currentHealth = _health;
+        _healthBar.fillAmount = 1;
     }
 
     // Update is called once per frame
     private void Update()
     {
+        if (!IsAlive) return;
+
         var reachedPlayer = Vector2.Distance(transform.position, _player.transform.position) <= _agent.stoppingDistance;
         if (reachedPlayer && _canAttack)
             Attack();
@@ -102,6 +115,31 @@ public class EnemyBehaviour : MonoBehaviour
     {
         var positionX = _player.transform.position.x - transform.position.x;
         transform.eulerAngles = new Vector2(0, positionX > 0 ? 0 : 180f);
+    }
+
+    public void Hit()
+    {
+        _currentHealth--;
+        _healthBar.fillAmount = _currentHealth / _health;
+
+        if (_currentHealth <= 0)
+            Die();
+        else
+        _animation.Hit();
+    }
+
+    private void Die()
+    {
+        gameObject.layer = 0;
+        _animation.Die();
+    }
+
+    /// <summary>
+    /// Chamado durante o último frame da animãção de morte do inimigo como um evento
+    /// </summary>
+    public void OnDie()
+    {
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected() =>
