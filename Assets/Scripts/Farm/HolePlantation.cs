@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class HolePlantation : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] private AudioClip _holeSFX;
+    [SerializeField] private AudioClip _carrotSFX;
+    private AudioSource _audioSource;
+
     [Header("Sprites")]
     [SerializeField] private Sprite _emptyHole;
     [SerializeField] private Sprite _holeWithCarrot;
@@ -16,6 +21,7 @@ public class HolePlantation : MonoBehaviour
 
     public bool FullOfWater { get => _currentWaterAmount == _waterAmount; }
     public bool AvaiableToPlant { get => _currentHealth == 0; }
+    public bool CanCollect { get; private set; }
 
     private bool _isWeathering;
     private bool _playerInRange;
@@ -23,6 +29,9 @@ public class HolePlantation : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        if (!TryGetComponent(out _audioSource))
+            throw new Exception("O componente AudioSource não está associado a este objeto");
+
         _spriteBase = GetComponentInChildren<SpriteRenderer>();
         if (_spriteBase == null)
             throw new Exception("O componente 'Sprite Renderer' não foi associado a nenhuma 'child' deste objeto");
@@ -88,7 +97,12 @@ public class HolePlantation : MonoBehaviour
 
     private void GrowUpCarrot()
     {
-        if (FullOfWater) _spriteBase.sprite = _holeWithCarrot;
+        if (FullOfWater && !CanCollect)
+        {
+            CanCollect = true;
+            _spriteBase.sprite = _holeWithCarrot;
+            _audioSource.PlayOneShot(_holeSFX);
+        }
     }
 
     private void CollectCarrot()
@@ -101,6 +115,8 @@ public class HolePlantation : MonoBehaviour
                 _spriteBase.sprite = _emptyHole;
                 _currentWaterAmount = 0;
                 playerItems.CollectCarrot();
+                _audioSource.PlayOneShot(_carrotSFX);
+                CanCollect = false;
             }
         }
     }
